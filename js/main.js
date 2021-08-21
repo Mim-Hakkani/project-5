@@ -11,7 +11,7 @@ function computerfig(parts,price){
     //catch the cost of memoey/storage/delevery cost id 
       const partsid = document.getElementById(parts+'-cost')
       const partstext=partsid.innerText;
-      var partsamount =parseInt(partstext); 
+      const parts_amount =parseInt(partstext); 
       
     //value set 
        partsid.innerText = price;
@@ -33,13 +33,20 @@ function computerfig(parts,price){
 
 
     //grand total balance update
-    //const total_priceid = document.getElementById('balance-total')
-    //const total_pricetext=total_priceid.innerText;
-    //const total_priceamount =parseInt(total_pricetext);
+    const grand_total_priceid = document.getElementById('grand-total')
+    const grand_total_pricetext=grand_total_priceid.innerText;
+    const grand_total_priceamount =parseInt(grand_total_pricetext);
+ 
+    grand_total_priceid.innerText =total;
 
-    //total_priceid.innerText =moja+1299;
+    
+
+
+
     
 }
+
+
 
 
 // // click event for memory 
@@ -90,6 +97,33 @@ document.getElementById('storage-1').addEventListener('click',function(){
      
 
 
+ document.getElementById('promo-submit').addEventListener('click',function(){
+
+
+  const promo_input_id = document.getElementById('promo-input');
+  const promo_text =promo_input_id.value;
+  
+  
+  const grand_total_priceid = document.getElementById('grand-total')
+  const grand_total_pricetext=grand_total_priceid.innerText;
+  const grand_total_priceamount =parseInt(grand_total_pricetext);
+
+
+  if(promo_text=='stevekaku'){
+    
+   const final_result =grand_total_priceamount*0.2;
+   console.log(final_result);
+   grand_total_priceid.innerText =grand_total_priceamount-final_result;
+   promo_input_id.value =''
+  }
+  else{
+    promo_input_id.value ='';
+  }
+
+  
+  
+
+});
 
 
 
